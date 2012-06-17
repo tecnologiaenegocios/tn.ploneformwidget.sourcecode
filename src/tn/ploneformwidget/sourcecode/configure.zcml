@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="tn.plonehtmlpage"
+    >
+
+  <includeDependencies package="." />
+
+  <browser:resourceDirectory
+      name="tn.ploneformwidget.sourcecode"
+      directory="resources"
+      />
+
+  <class class=".SourceCodeWidget">
+    <require
+        permission="zope.Public"
+        interface=".ISourceCodeWidget"
+        />
+  </class>
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget=".ISourceCodeWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="widget_display.pt"
+      />
+
+  <z3c:widgetTemplate
+      mode="input"
+      widget=".ISourceCodeWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="widget_input.pt"
+      />
+
+</configure>
